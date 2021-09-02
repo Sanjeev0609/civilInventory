@@ -58,4 +58,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.30"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    def blur_view = '3.0.0'
+    implementation "jp.wasabeef:blurry:$blur_view"
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
 }
