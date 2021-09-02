@@ -1,6 +1,9 @@
 package com.example.builderstool.network
 
 import android.util.Log
+import com.example.builderstool.network.request.CompanyLoginRequest
+import com.example.builderstool.network.request.CompanyRegisterRequest
+import com.example.builderstool.network.response.UserResponse
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -73,9 +76,12 @@ class RetrofitService {
             call.enqueue(callback)
         }
     }
-//    fun studentLogin(loginRequest: StudentLoginRequest,callback: Callback<UserResponse>){
-//        request(retrofit().loginStudent(loginRequest),callback)
-//    }
+    fun adminLogin(loginRequest: CompanyLoginRequest,callback: Callback<UserResponse>){
+        request(retrofit().adminLogin(loginRequest),callback)
+    }
+    fun adminRegister(loginRequest: CompanyRegisterRequest,callback: Callback<UserResponse>){
+        request(retrofit().adminRegister(loginRequest),callback)
+    }
 
     class AuthorizationInterceptor : Interceptor {
         private val TAG: String = AuthorizationInterceptor::class.java.simpleName

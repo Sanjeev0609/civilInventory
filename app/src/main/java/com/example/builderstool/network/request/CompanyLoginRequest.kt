@@ -2,14 +2,8 @@ package com.example.builderstool.network.request
 
 import com.google.gson.annotations.SerializedName
 
-class CompanyRegisterRequest {
+class CompanyLoginRequest {
 
-    @SerializedName("id")
-    var id:Int?=null
-
-    var name:String?=null
-
-    var email:String?=null
 
     var mobile:String?=null
 
