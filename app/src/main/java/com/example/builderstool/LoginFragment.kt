@@ -24,7 +24,11 @@ class LoginFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btLogin.setOnClickListener {
             startActivity(Intent(requireActivity(),MainActivity::class.java))
-            findNavController().navigate(R.id.dashboardFragment)
+
+        }
+        bt_Register.setOnClickListener {
+            startActivity(Intent(requireActivity(),RegisterActivity::class.java))
+
         }
     }
 

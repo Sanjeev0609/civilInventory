@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".RegisterFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+
+
+        <EditText
+            android:id="@+id/text_name"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:hint="Name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/text_email"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+
+            android:inputType="textPersonName"
+            android:layout_marginTop="30dp"
+            android:hint="Email" />
+
+        <EditText
+            android:id="@+id/text_phone"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:ems="10"
+            android:layout_marginTop="30dp"
+            android:hint="Phone Number"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/text_password"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:hint="Password"
+
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/text_confirmPassword"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:hint="Confirm Password"
+
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/bt_Register"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:text="Register" />
+
+
+    </LinearLayout>
+
+
+
+</layout>
