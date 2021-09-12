@@ -10,4 +10,8 @@
         android:name="com.example.builderstool.DashboardFragment"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/productsListFragment"
+        android:name="com.example.builderstool.ui.products.ProductsListFragment"
+        android:label="Products" />
 </navigation>

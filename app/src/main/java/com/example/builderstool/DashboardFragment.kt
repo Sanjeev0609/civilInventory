@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.builderstool.ui.BottomPopupDialog
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
@@ -23,6 +24,10 @@ class DashboardFragment:Fragment() {
         fab.setOnClickListener {
             var bottomPopup=BottomPopupDialog()
             bottomPopup.show(requireActivity().supportFragmentManager,"ModalBottomSheet")
+        }
+
+        cv_products.setOnClickListener {
+            findNavController().navigate(R.id.productsListFragment)
         }
 
     }

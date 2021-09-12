@@ -1,6 +1,7 @@
 package com.example.builderstool.network
 
 import android.util.Log
+import com.example.builderstool.model.Product
 import com.example.builderstool.network.request.CompanyLoginRequest
 import com.example.builderstool.network.request.CompanyRegisterRequest
 import com.example.builderstool.network.response.UserResponse
@@ -81,6 +82,9 @@ class RetrofitService {
     }
     fun adminRegister(loginRequest: CompanyRegisterRequest,callback: Callback<UserResponse>){
         request(retrofit().adminRegister(loginRequest),callback)
+    }
+    fun listProducts(company_id:Int,callback: Callback<ArrayList<Product>>){
+        request(retrofit().listProducts(company_id),callback)
     }
 
     class AuthorizationInterceptor : Interceptor {

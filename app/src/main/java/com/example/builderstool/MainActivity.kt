@@ -11,17 +11,19 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.builderstool.common.BaseActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : BaseActivity() {
     private lateinit var navController: NavController
     lateinit var appBarConfiguration:AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
