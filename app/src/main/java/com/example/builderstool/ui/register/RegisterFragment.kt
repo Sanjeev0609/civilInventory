@@ -27,7 +27,7 @@ class RegisterFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        initListeners()
         observeViewModel()
     }
 
@@ -47,11 +47,15 @@ class RegisterFragment: BaseFragment() {
             }
             tie_mobile.addTextChangedListener {
                 mobile=it.toString()
-                til_name.isErrorEnabled=false
+                til_mobile.isErrorEnabled=false
             }
             tie_password.addTextChangedListener {
-                name=it.toString()
-                til_name.isErrorEnabled=false
+                password=it.toString()
+                til_mobile.isErrorEnabled=false
+            }
+            
+            bt_Register.setOnClickListener {
+                registerViewModel!!.adminRegister()
             }
         }
     }
@@ -59,7 +63,7 @@ class RegisterFragment: BaseFragment() {
     fun observeViewModel(){
         with(registerViewModel){
             isProgressShowing.observe(viewLifecycleOwner, Observer {
-                updateProgress(it ?: false)
+                updateProgress(it!!)
             })
             apiResponseMessage.observe(viewLifecycleOwner, Observer {
                 it?.let {

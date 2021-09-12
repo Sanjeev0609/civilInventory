@@ -6,12 +6,13 @@ import com.example.builderstool.network.response.UserResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiService {
     @POST("company/login")
     fun adminLogin(@Body loginRequest: CompanyLoginRequest): Call<UserResponse>
 
     @POST("company/register")
-    fun adminRegister(@Body loginRequest: CompanyRegisterRequest): Call<UserResponse>
+    fun adminRegister(@Body loginRequest: CompanyRegisterRequest ): Call<UserResponse>
 
 }

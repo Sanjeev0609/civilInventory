@@ -44,7 +44,6 @@ class LoginFragment: BaseFragment() {
         }
         bt_Register.setOnClickListener {
             startActivity(Intent(requireActivity(), RegisterActivity::class.java))
-
         }
 
         with(loginViewModel.loginRequest){
