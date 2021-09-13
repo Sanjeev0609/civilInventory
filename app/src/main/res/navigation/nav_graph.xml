@@ -8,10 +8,22 @@
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.example.builderstool.DashboardFragment"
-        android:label="fragment_dashboard"
+        android:label="Builders Tool"
         tools:layout="@layout/fragment_dashboard" />
     <fragment
         android:id="@+id/productsListFragment"
         android:name="com.example.builderstool.ui.products.ProductsListFragment"
         android:label="Products" />
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.example.builderstool.ui.products.AddProductFragment"
+        android:label="Create Products" />
+    <fragment
+        android:id="@+id/addSiteFragment"
+        android:name="com.example.builderstool.ui.sites.AddSiteFragment"
+        android:label="Add Site" />
+    <fragment
+        android:id="@+id/sitesListFragment"
+        android:name="com.example.builderstool.ui.sites.SitesListFragment"
+        android:label="Sites" />
 </navigation>

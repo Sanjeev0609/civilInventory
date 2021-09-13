@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.builderstool.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 class BottomPopupDialog:BottomSheetDialogFragment() {
     override fun onCreateView(
@@ -14,5 +16,19 @@ class BottomPopupDialog:BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.dialog_bottom_popup,container,false)
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        cv_products.setOnClickListener {
+            findNavController().navigate(R.id.addProductFragment)
+            dismiss()
+        }
+
+        cv_sites.setOnClickListener {
+            findNavController().navigate(R.id.addSiteFragment)
+            dismiss()
+        }
     }
 }

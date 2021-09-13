@@ -2,8 +2,12 @@ package com.example.builderstool.network
 
 import android.util.Log
 import com.example.builderstool.model.Product
+import com.example.builderstool.model.Site
+import com.example.builderstool.network.request.AddProductRequest
+import com.example.builderstool.network.request.AddSiteRequest
 import com.example.builderstool.network.request.CompanyLoginRequest
 import com.example.builderstool.network.request.CompanyRegisterRequest
+import com.example.builderstool.network.response.CommonResponse
 import com.example.builderstool.network.response.UserResponse
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -85,6 +89,15 @@ class RetrofitService {
     }
     fun listProducts(company_id:Int,callback: Callback<ArrayList<Product>>){
         request(retrofit().listProducts(company_id),callback)
+    }
+    fun createProduct(company_id: Int,addProductRequest: AddProductRequest,callback: Callback<CommonResponse>){
+        request(retrofit().createProduct(company_id,addProductRequest),callback)
+    }
+    fun createSite(company_id: Int,addSiteRequest: AddSiteRequest,callback: Callback<CommonResponse>){
+        request(retrofit().createSite(company_id,addSiteRequest),callback)
+    }
+    fun listSites(company_id:Int,callback: Callback<ArrayList<Site>>){
+        request(retrofit().listSites(company_id),callback)
     }
 
     class AuthorizationInterceptor : Interceptor {

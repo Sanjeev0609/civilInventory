@@ -30,5 +30,9 @@ class DashboardFragment:Fragment() {
             findNavController().navigate(R.id.productsListFragment)
         }
 
+        cv_sites.setOnClickListener {
+            findNavController().navigate(R.id.sitesListFragment)
+        }
+
     }
 }

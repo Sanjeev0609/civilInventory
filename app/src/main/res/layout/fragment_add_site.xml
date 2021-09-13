@@ -35,6 +35,10 @@
             app:layout_constraintStart_toStartOf="parent"
 
             tools:layout_editor_absoluteY="60dp">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
 
 
             <LinearLayout
@@ -43,16 +47,6 @@
                 android:orientation="vertical">
 
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="ADD SITES"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_owner_name"
@@ -67,7 +61,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/ivAppLogo">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tie_product_name"
+                        android:id="@+id/tie_owner_name"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
@@ -94,7 +88,7 @@
                     app:layout_constraintTop_toBottomOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tie_product_Price"
+                        android:id="@+id/tie_street"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
@@ -174,7 +168,7 @@
                     app:layout_constraintTop_toBottomOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tie_product_description"
+                        android:id="@+id/tie_details"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
@@ -202,10 +196,9 @@
 
                 <ImageView
                     android:id="@+id/img_upload_site"
-                    android:layout_width="54dp"
-                    android:layout_height="50dp"
-
-                    android:layout_marginLeft="80dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:clickable="true"
                     app:srcCompat="@drawable/upload_flat_icon_single_high_260nw_739633516" />
@@ -224,6 +217,7 @@
 
 
             </LinearLayout>
+            </ScrollView>
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

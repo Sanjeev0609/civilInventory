@@ -35,6 +35,12 @@
         app:layout_constraintStart_toStartOf="parent"
 
         tools:layout_editor_absoluteY="60dp">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+
 
 
         <LinearLayout
@@ -43,16 +49,6 @@
             android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="ADD PRODUCTS"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_product_name"
@@ -192,7 +188,7 @@
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="80dp"
+                android:layout_gravity="center"
                 android:clickable="true"
                 app:srcCompat="@drawable/upload_flat_icon_single_high_260nw_739633516" />
 
@@ -210,6 +206,7 @@
 
 
         </LinearLayout>
+        </ScrollView>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
