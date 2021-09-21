@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.example.builderstool.R
 import com.example.builderstool.model.Product
@@ -19,6 +20,10 @@ class ProductsListAdapter(var context: Context,var products:ArrayList<Product>):
         holder.itemView.tv_name.text=product.name
         holder.itemView.tv_stock.text=product.stock.toString()
         holder.itemView.tv_price.text="₹ "+product.price
+
+        if(product.image!=null){
+            holder.itemView.iv_product.setImageURI(product.image!!.toUri())
+        }
 
         if (10 > product.stock!!){
             holder.itemView.iv_status.setImageResource(R.drawable.ic_warning)

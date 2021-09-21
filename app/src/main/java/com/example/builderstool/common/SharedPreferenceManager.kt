@@ -4,6 +4,7 @@ package com.example.builderstool.common
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import com.example.builderstool.network.response.UserResponse
 import com.google.gson.Gson
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -11,13 +12,13 @@ import java.util.concurrent.TimeUnit
 class SharedPreferenceManager(context: Context) {
     private val gson: Gson = Gson()
     private val sharedPreferences: SharedPreferences
-//    fun userLogin(userResponse: UserResponse?): Boolean {
-//        val editor = sharedPreferences.edit()
-//        Log.e("Store user", gson.toJson(userResponse))
-//        editor.putString(STORE_USER_OBJECT, gson.toJson(userResponse))
-//        editor.apply()
-//        return true
-//    }
+    fun userLogin(userResponse: UserResponse?): Boolean {
+        val editor = sharedPreferences.edit()
+        Log.e("Store user", gson.toJson(userResponse))
+        editor.putString(STORE_USER_OBJECT, gson.toJson(userResponse))
+        editor.apply()
+        return true
+    }
 
 //    fun updateUser(userResponse: UserResponse?): Boolean {
 //        val editor = sharedPreferences.edit()
@@ -28,12 +29,12 @@ class SharedPreferenceManager(context: Context) {
 
     val isLoggedIn: Boolean
         get() = sharedPreferences.getBoolean(TOKEN_STATE, false)
-//    val user: UserResponse?
-//        get() {
-//            val userObject = sharedPreferences.getString(STORE_USER_OBJECT, null)
-//                ?: return null
-//            return gson.fromJson(userObject, UserResponse::class.java)
-//        }
+    val user: UserResponse?
+        get() {
+            val userObject = sharedPreferences.getString(STORE_USER_OBJECT, null)
+                ?: return null
+            return gson.fromJson(userObject, UserResponse::class.java)
+        }
 
     fun logout(){
         val editor = sharedPreferences.edit()

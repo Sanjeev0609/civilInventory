@@ -32,6 +32,7 @@
         app:cardElevation="8dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 
         tools:layout_editor_absoluteY="60dp">
@@ -183,14 +184,32 @@
                     android:transitionName="login_text3" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="15dp"
-                android:layout_gravity="center"
-                android:clickable="true"
-                app:srcCompat="@drawable/upload_flat_icon_single_high_260nw_739633516" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Image :"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textSize="18sp"/>
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    app:srcCompat="@drawable/ic_image_upload" />
+            </LinearLayout>
+
+
 
             <Button
                 android:id="@+id/bt_addProduct"

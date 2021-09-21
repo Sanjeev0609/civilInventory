@@ -13,7 +13,7 @@ class ListSitesViewModel(application: Application):BaseViewModel(application) {
 
     fun listSites(){
         isProgressShowing.value=true
-        BaseApplication.getInstance().apimanager.listSites(1,object :retrofit2.Callback<ArrayList<Site>>{
+        BaseApplication.getInstance().apimanager.listSites(object :retrofit2.Callback<ArrayList<Site>>{
             override fun onResponse(
                 call: Call<ArrayList<Site>>,
                 response: Response<ArrayList<Site>>

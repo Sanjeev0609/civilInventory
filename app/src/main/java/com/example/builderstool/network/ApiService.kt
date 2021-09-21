@@ -1,12 +1,12 @@
 package com.example.builderstool.network
 
 import com.example.builderstool.model.Product
+import com.example.builderstool.model.Purchase
 import com.example.builderstool.model.Site
-import com.example.builderstool.network.request.AddProductRequest
-import com.example.builderstool.network.request.AddSiteRequest
-import com.example.builderstool.network.request.CompanyLoginRequest
-import com.example.builderstool.network.request.CompanyRegisterRequest
+import com.example.builderstool.model.Supplier
+import com.example.builderstool.network.request.*
 import com.example.builderstool.network.response.CommonResponse
+import com.example.builderstool.network.response.PurchaseResponse
 import com.example.builderstool.network.response.UserResponse
 import retrofit2.Call
 import retrofit2.http.Body
@@ -22,14 +22,23 @@ interface ApiService {
     fun adminRegister(@Body loginRequest: CompanyRegisterRequest ): Call<UserResponse>
 
     @GET("products")
-    fun listProducts(@Query("company_id") id:Int):Call<ArrayList<Product>>
+    fun listProducts():Call<ArrayList<Product>>
 
     @POST("products")
-    fun createProduct(@Query("company_id") id:Int ,@Body addProductRequest: AddProductRequest):Call<CommonResponse>
+    fun createProduct( @Body addProductRequest: AddProductRequest):Call<CommonResponse>
 
     @POST("sites")
-    fun createSite(@Query("company_id") id:Int ,@Body addSiteRequest: AddSiteRequest):Call<CommonResponse>
+    fun createSite(@Body addSiteRequest: AddSiteRequest):Call<CommonResponse>
+
+    @POST("suppliers")
+    fun createSupplier(@Body addSupplierRequest: AddSupplierRequest):Call<CommonResponse>
 
     @GET("sites")
-    fun listSites(@Query("company_id") id:Int):Call<ArrayList<Site>>
+    fun listSites():Call<ArrayList<Site>>
+
+    @GET("suppliers")
+    fun listSuppliers():Call<ArrayList<Supplier>>
+
+    @POST("purchase")
+    fun createPurchase(@Body purchaseRequest: Purchase):Call<PurchaseResponse>
 }

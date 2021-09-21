@@ -29,7 +29,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginStart="8dp"
-                android:src="@drawable/ic_maintenance"
+                android:src="@drawable/suppliers"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:padding="8dp"/>
@@ -38,7 +38,7 @@
                 android:id="@+id/tv_name_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name : "
+                android:text="Store Name : "
                 app:layout_constraintTop_toTopOf="@+id/iv_product"
                 android:textSize="14sp"
                 android:textColor="@color/brown"
@@ -57,10 +57,10 @@
                 android:layout_marginStart="8dp"/>
 
             <TextView
-                android:id="@+id/tv_price_heading"
+                android:id="@+id/tv_address_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price : "
+                android:text="Address : "
                 app:layout_constraintTop_toBottomOf="@+id/tv_name_heading"
                 android:textSize="14sp"
                 android:textColor="@color/brown"
@@ -69,23 +69,23 @@
                 android:layout_marginStart="8dp"/>
 
             <TextView
-                android:id="@+id/tv_price"
+                android:id="@+id/tv_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1000 "
-                app:layout_constraintTop_toTopOf="@+id/tv_price_heading"
+                app:layout_constraintTop_toTopOf="@+id/tv_address_heading"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/tv_name_heading"
+                app:layout_constraintStart_toEndOf="@+id/tv_address_heading"
                 android:layout_marginStart="8dp"/>
 
             <TextView
-                android:id="@+id/tv_stock_heading"
+                android:id="@+id/tv_mobile_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Stock : "
-                app:layout_constraintTop_toBottomOf="@+id/tv_price_heading"
+                android:text="Mobile : "
+                app:layout_constraintTop_toBottomOf="@+id/tv_address_heading"
                 android:textSize="14sp"
                 android:textColor="@color/brown"
                 android:layout_marginTop="10dp"
@@ -93,25 +93,17 @@
                 android:layout_marginStart="8dp"/>
 
             <TextView
-                android:id="@+id/tv_stock"
+                android:id="@+id/tv_mobile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1000 "
-                app:layout_constraintTop_toTopOf="@+id/tv_stock_heading"
+                app:layout_constraintTop_toTopOf="@+id/tv_mobile_heading"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/tv_name_heading"
+                app:layout_constraintStart_toEndOf="@+id/tv_mobile_heading"
                 android:layout_marginStart="8dp"/>
 
-            <ImageView
-                android:id="@+id/iv_status"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_warning"
-                app:layout_constraintTop_toTopOf="@+id/iv_product"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="16dp"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

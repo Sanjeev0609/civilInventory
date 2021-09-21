@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.builderstool.common.BaseApplication
 import com.example.builderstool.common.BaseViewModel
+import com.example.builderstool.common.SharedPreferenceManager
 import com.example.builderstool.network.ErrorHandle
 import com.example.builderstool.network.request.CompanyLoginRequest
 import com.example.builderstool.network.response.UserResponse
@@ -36,7 +37,7 @@ class LoginViewModel(application: Application):BaseViewModel(application) {
 //                user!!.userType=userType
                 Log.d("Login", "Login success")
                 handleApiResponse("Login Successfull")
-//                SharedPreferenceManager(BaseApplication.getInstance()).userLogin(user)
+                SharedPreferenceManager(BaseApplication.getInstance()).userLogin(user)
                 navigateToMain.value=true
             } else {
                 var errorBodyString = response.errorBody()!!.string()

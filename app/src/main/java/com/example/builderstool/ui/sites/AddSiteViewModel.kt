@@ -27,7 +27,7 @@ class AddSiteViewModel(application: Application):BaseViewModel(application) {
         var mobileError = MutableLiveData<String>()
         fun createSite(){
             isProgressShowing.value=true
-            BaseApplication.getInstance().apimanager.createSite(1,createSiteRequest,object :
+            BaseApplication.getInstance().apimanager.createSite(createSiteRequest,object :
                 Callback<CommonResponse> {
                 override fun onResponse(
                     call: Call<CommonResponse>,

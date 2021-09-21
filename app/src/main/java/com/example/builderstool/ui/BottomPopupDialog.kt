@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.builderstool.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.dialog_bottom_popup.*
 
 class BottomPopupDialog:BottomSheetDialogFragment() {
     override fun onCreateView(
@@ -28,6 +28,16 @@ class BottomPopupDialog:BottomSheetDialogFragment() {
 
         cv_sites.setOnClickListener {
             findNavController().navigate(R.id.addSiteFragment)
+            dismiss()
+        }
+
+        cv_suppliers.setOnClickListener {
+            findNavController().navigate(R.id.addSupplierFragment)
+            dismiss()
+        }
+
+        cv_purchases.setOnClickListener {
+            findNavController().navigate(R.id.purchaseFragment)
             dismiss()
         }
     }

@@ -14,7 +14,7 @@ class ProductsViewModel(application: Application):BaseViewModel(application) {
 
     fun listProducts(){
         isProgressShowing.value=true
-        BaseApplication.getInstance().apimanager.listProducts(1,object :retrofit2.Callback<ArrayList<Product>>{
+        BaseApplication.getInstance().apimanager.listProducts(object :retrofit2.Callback<ArrayList<Product>>{
             override fun onResponse(
                 call: Call<ArrayList<Product>>,
                 response: Response<ArrayList<Product>>

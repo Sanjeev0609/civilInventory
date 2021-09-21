@@ -26,4 +26,16 @@
         android:id="@+id/sitesListFragment"
         android:name="com.example.builderstool.ui.sites.SitesListFragment"
         android:label="Sites" />
+    <fragment
+        android:id="@+id/addSupplierFragment"
+        android:name="com.example.builderstool.ui.suppliers.AddSupplierFragment"
+        android:label="Add Supplier" />
+    <fragment
+        android:id="@+id/suppliersListFragment"
+        android:name="com.example.builderstool.ui.suppliers.SuppliersListFragment"
+        android:label="Suppliers" />
+    <fragment
+        android:id="@+id/purchaseFragment"
+        android:name="com.example.builderstool.ui.purchase.PurchaseFragment"
+        android:label="Purchase" />
 </navigation>

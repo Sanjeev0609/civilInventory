@@ -1,13 +1,16 @@
 package com.example.builderstool.network
 
+import android.content.SharedPreferences
 import android.util.Log
+import com.example.builderstool.common.BaseApplication
+import com.example.builderstool.common.SharedPreferenceManager
 import com.example.builderstool.model.Product
+import com.example.builderstool.model.Purchase
 import com.example.builderstool.model.Site
-import com.example.builderstool.network.request.AddProductRequest
-import com.example.builderstool.network.request.AddSiteRequest
-import com.example.builderstool.network.request.CompanyLoginRequest
-import com.example.builderstool.network.request.CompanyRegisterRequest
+import com.example.builderstool.model.Supplier
+import com.example.builderstool.network.request.*
 import com.example.builderstool.network.response.CommonResponse
+import com.example.builderstool.network.response.PurchaseResponse
 import com.example.builderstool.network.response.UserResponse
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -26,6 +29,8 @@ class RetrofitService {
     companion object {
         const val BEARER="Bearer "
         const val AUTHORISATION_KEY="Authorization"
+        const val company_id_key="company_Id"
+         var company_id=SharedPreferenceManager(BaseApplication.getInstance()).user?.id
         private const val TIMEOUT:Long=30
         private const val UNAUTHORISED_CODE=401
         fun getRetrofit(): Retrofit {
@@ -35,6 +40,7 @@ class RetrofitService {
                     var request = chain.request()
                     request = request.newBuilder()
                         .addHeader("Accept", "application/json")
+                        .addHeader(company_id_key, SharedPreferenceManager(BaseApplication.getInstance()).user?.id.toString())
                         .addHeader("Content-Type", "application/json").build()
                     val response = chain.proceed(request)
                     return response
@@ -59,7 +65,9 @@ class RetrofitService {
                     var request = chain.request()
                     request = request.newBuilder()
                         .addHeader("Accept", "application/json")
+                        .addHeader(company_id_key, SharedPreferenceManager(BaseApplication.getInstance()).user?.id.toString())
                         .addHeader("Content-Type", "application/json").build()
+
                     val response = chain.proceed(request)
                     return response
                 }
@@ -87,19 +95,30 @@ class RetrofitService {
     fun adminRegister(loginRequest: CompanyRegisterRequest,callback: Callback<UserResponse>){
         request(retrofit().adminRegister(loginRequest),callback)
     }
-    fun listProducts(company_id:Int,callback: Callback<ArrayList<Product>>){
-        request(retrofit().listProducts(company_id),callback)
+    fun listProducts(callback: Callback<ArrayList<Product>>){
+        request(retrofit().listProducts(),callback)
     }
-    fun createProduct(company_id: Int,addProductRequest: AddProductRequest,callback: Callback<CommonResponse>){
-        request(retrofit().createProduct(company_id,addProductRequest),callback)
+    fun createProduct(addProductRequest: AddProductRequest,callback: Callback<CommonResponse>){
+        request(retrofit().createProduct(addProductRequest),callback)
     }
-    fun createSite(company_id: Int,addSiteRequest: AddSiteRequest,callback: Callback<CommonResponse>){
-        request(retrofit().createSite(company_id,addSiteRequest),callback)
-    }
-    fun listSites(company_id:Int,callback: Callback<ArrayList<Site>>){
-        request(retrofit().listSites(company_id),callback)
+    fun createSite(addSiteRequest: AddSiteRequest,callback: Callback<CommonResponse>){
+        request(retrofit().createSite(addSiteRequest),callback)
     }
 
+    fun createSupplier(addSiteRequest: AddSupplierRequest,callback: Callback<CommonResponse>){
+        request(retrofit().createSupplier(addSiteRequest),callback)
+    }
+    fun listSites(callback: Callback<ArrayList<Site>>){
+        request(retrofit().listSites(),callback)
+    }
+
+    fun listSuppliers(callback: Callback<ArrayList<Supplier>>){
+        request(retrofit().listSuppliers(),callback)
+    }
+
+    fun createPurchase(purchase: Purchase,callback: Callback<PurchaseResponse>){
+        request(retrofit().createPurchase(purchase),callback)
+    }
     class AuthorizationInterceptor : Interceptor {
         private val TAG: String = AuthorizationInterceptor::class.java.simpleName
 
