@@ -8,17 +8,30 @@ import com.example.builderstool.MainActivity
 import com.example.builderstool.R
 import com.example.builderstool.common.BaseApplication
 import com.example.builderstool.common.SharedPreferenceManager
+import com.example.builderstool.ui.login.LoginActivity
 
 class SplashActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_splash)
+        if(SharedPreferenceManager(BaseApplication.getInstance()).user!=null) {
+            if (SharedPreferenceManager(BaseApplication.getInstance()).user!!.id != null) {
+                Handler().postDelayed(
+                    { startActivity(Intent(this, MainActivity::class.java)) },
+                    5000
+                )
 
-        if(SharedPreferenceManager(BaseApplication.getInstance()).user!!.id!=null){
-            Handler().postDelayed({startActivity(Intent(this,MainActivity::class.java))},5000)
-
+            } else {
+                Handler().postDelayed(
+                    { startActivity(Intent(this, LoginActivity::class.java)) },
+                    5000
+                )
+            }
         }else{
-            Handler().postDelayed({startActivity(Intent(this,MainActivity::class.java))},5000)
+            Handler().postDelayed(
+                { startActivity(Intent(this, LoginActivity::class.java)) },
+                5000
+            )
         }
     }
 }

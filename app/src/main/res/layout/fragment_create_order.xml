@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_primary"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:paddingBottom="32dp">
+
+
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/spinner_border"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toStartOf="@id/til_product_quantity"
+                    android:id="@+id/sp_product"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_product_quantity"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="8dp"
+                    android:hint="Quantity"
+                    app:layout_constraintStart_toEndOf="@id/sp_product"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/sp_product">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tie_product_quantity"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:imeOptions="actionDone"
+                        android:textSize="10sp"
+                        android:text="0"
+                        android:inputType="number"
+                        android:maxEms="250"
+                        android:maxLines="1"
+                        android:textColor="#001380"
+                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="Add Product"
+                    android:background="@drawable/curved_border"
+                    android:id="@+id/btn_add_product"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sp_product"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_products"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_add_product"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="8dp"/>
+
+
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/cv_bill"
+            app:layout_constraintTop_toBottomOf="@+id/cv_1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bill"
+                    android:id="@+id/tv_bill"
+                    android:textSize="18sp"
+                    android:textColor="@color/brown"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textAlignment="center"/>
+                <include
+                    android:id="@+id/in_bill_heading"
+                    layout="@layout/layout_bill_heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_bill"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_bill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/in_bill_heading"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total : "
+                    android:layout_marginTop="16dp"
+                    android:textSize="15sp"
+                    android:id="@+id/tv_total_heading"
+                    android:textStyle="bold"
+                    android:textColor="@color/brown"
+                    app:layout_constraintTop_toBottomOf="@id/rv_bill"
+                    app:layout_constraintEnd_toStartOf="@id/tv_total"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 "
+                    android:textSize="15sp"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/tv_total"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/rv_bill"
+                    android:layout_marginEnd="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paid : "
+                    android:textSize="15sp"
+                    android:id="@+id/tv_paid_heading"
+                    android:textStyle="bold"
+                    android:textColor="@color/brown"
+                    app:layout_constraintTop_toTopOf="@id/et_paid"
+                    app:layout_constraintBottom_toBottomOf="@id/et_paid"
+                    app:layout_constraintEnd_toStartOf="@id/et_paid"/>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="0"
+                    android:textSize="15sp"
+                    android:id="@+id/et_paid"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:maxEms="10"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv_total_heading"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="Order"
+            android:id="@+id/btn_order"
+            app:layout_constraintTop_toBottomOf="@id/cv_bill"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_brown"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

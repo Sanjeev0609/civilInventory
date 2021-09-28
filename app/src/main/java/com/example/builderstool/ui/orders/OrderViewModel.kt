@@ -1,42 +1,24 @@
-package com.example.builderstool.ui.purchase
+package com.example.builderstool.ui.orders
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.example.builderstool.common.BaseApplication
 import com.example.builderstool.common.BaseViewModel
 import com.example.builderstool.common.PdfUtils
+import com.example.builderstool.model.Order
 import com.example.builderstool.model.Product
 import com.example.builderstool.model.Purchase
 import com.example.builderstool.model.Supplier
+import com.example.builderstool.network.response.OrderResponse
 import com.example.builderstool.network.response.PurchaseResponse
 import retrofit2.Call
 import retrofit2.Response
 
-class PurchaseViewModel(application: Application):BaseViewModel(application) {
-    var suppliers= MutableLiveData<ArrayList<Supplier>>()
-    var products=MutableLiveData<ArrayList<Product>>()
-    var purchaseData=ArrayList<Purchase>()
+class OrderViewModel(application: Application):BaseViewModel(application) {
+    var products= MutableLiveData<ArrayList<Product>>()
+    var orderData=Order()
 
-    fun listSuppliers(){
-        isProgressShowing.value=true
-        BaseApplication.getInstance().apimanager.listSuppliers(object :retrofit2.Callback<ArrayList<Supplier>>{
-            override fun onResponse(
-                call: Call<ArrayList<Supplier>>,
-                response: Response<ArrayList<Supplier>>
-            ) {
-                isProgressShowing.value=false
-                if(response.isSuccessful){
-                    suppliers.value=response.body()
-                }else{
 
-                }
-            }
-
-            override fun onFailure(call: Call<ArrayList<Supplier>>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-        })
-    }
 
 
     fun listProducts(){
@@ -61,24 +43,25 @@ class PurchaseViewModel(application: Application):BaseViewModel(application) {
 
     }
 
-    fun createPurchase(){
+    fun createOrder(){
         isProgressShowing.value=true
-        BaseApplication.getInstance().apimanager.createPurchase(purchaseData[0],object :retrofit2.Callback<PurchaseResponse>{
+        BaseApplication.getInstance().apimanager.createOrder(orderData,object :retrofit2.Callback<OrderResponse>{
             override fun onResponse(
-                call: Call<PurchaseResponse>,
-                response: Response<PurchaseResponse>
+                call: Call<OrderResponse>,
+                response: Response<OrderResponse>
             ) {
                 isProgressShowing.value=false
                 if(response.isSuccessful){
                     apiResponseMessage.value=response.body()!!.message
-                    purchaseData[0].id=response.body()!!.purchaseId
-                    PdfUtils().createPurchaseBill(BaseApplication.getInstance(),purchaseData[0])
+                    orderData.id=response.body()!!.orderId
+                    PdfUtils().createOrderBill(BaseApplication.getInstance(),orderData)
+//                    PdfUtils().createBill(BaseApplication.getInstance(),orderData)
                 }else{
 
                 }
             }
 
-            override fun onFailure(call: Call<PurchaseResponse>, t: Throwable) {
+            override fun onFailure(call: Call<OrderResponse>, t: Throwable) {
                 TODO("Not yet implemented")
             }
         })

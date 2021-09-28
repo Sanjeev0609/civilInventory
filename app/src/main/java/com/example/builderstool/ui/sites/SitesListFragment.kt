@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.builderstool.R
 import com.example.builderstool.common.BaseFragment
@@ -50,7 +51,7 @@ class SitesListFragment :BaseFragment() {
                 updateProgress(it)
             })
             sites.observe(viewLifecycleOwner, Observer {
-                rv_sites.adapter = SitesListAdapter(currentContext, it)
+                rv_sites.adapter = SitesListAdapter(currentContext, it,findNavController())
                 rv_sites.layoutManager =
                     LinearLayoutManager(currentContext, LinearLayoutManager.VERTICAL, false)
             })
