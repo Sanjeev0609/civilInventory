@@ -4,17 +4,19 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.builderstool.R
 import com.example.builderstool.common.PdfUtils
 import com.example.builderstool.model.Order
 import com.example.builderstool.model.Purchase
+import com.example.builderstool.ui.orders.EditOrderFragment
 import com.example.builderstool.ui.purchase.BillItemAdapter
 import kotlinx.android.synthetic.main.card_orders.view.*
 
 
-class ListOrdersAdapter(var context: Context, var purchases:ArrayList<Order>): RecyclerView.Adapter<ListOrdersAdapter.ViewHolder>() {
+class ListOrdersAdapter(var context: Context, var purchases:ArrayList<Order>,var navController: NavController): RecyclerView.Adapter<ListOrdersAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.card_orders,parent,false))
     }
@@ -39,6 +41,10 @@ class ListOrdersAdapter(var context: Context, var purchases:ArrayList<Order>): R
         holder.itemView.btn_bill.setOnClickListener {
             purchase.billType="purchase_bill"
             PdfUtils().createOrderBill(context,purchase)
+        }
+        holder.itemView.btn_edit_order.setOnClickListener {
+            var action=SiteFragmentDirections.actionSiteFragmentToEditOrderFragment(purchase.id!!,purchase!!.paid!!,purchase!!.balance!!,purchase!!.total!!)
+            navController.navigate(action)
         }
     }
 

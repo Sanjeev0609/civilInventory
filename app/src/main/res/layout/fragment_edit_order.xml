@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_returned_products"
+        android:text="Returned Products"
+        android:textSize="18sp"
+        android:textColor="@color/brown"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_returned_products"
+        app:layout_constraintTop_toBottomOf="@id/tv_returned_products"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_excess_products"
+        android:text="Excess Products"
+        android:textSize="18sp"
+        android:textColor="@color/brown"
+        app:layout_constraintTop_toBottomOf="@id/rv_returned_products"
+        android:layout_marginTop="8dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_excess_products"
+        app:layout_constraintTop_toBottomOf="@id/tv_excess_products"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_products"
+        android:text="Products In this order"
+        android:textSize="18sp"
+        android:textColor="@color/brown"
+        app:layout_constraintTop_toBottomOf="@id/rv_excess_products"
+        android:layout_marginTop="8dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_products"
+        app:layout_constraintTop_toBottomOf="@id/tv_products"
+        android:layout_marginTop="8dp"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total : "
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:id="@+id/tv_total_heading"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1000 "
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:id="@+id/tv_total"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_total_heading"
+            android:layout_marginStart="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paid : "
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:id="@+id/tv_paid_heading"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_total_heading"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1000 "
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:inputType="number"
+            android:id="@+id/et_paid"
+            android:singleLine="true"
+            android:maxLines="1"
+            app:layout_constraintTop_toTopOf="@id/tv_paid_heading"
+            app:layout_constraintBottom_toBottomOf="@id/tv_paid_heading"
+            app:layout_constraintStart_toEndOf="@id/tv_paid_heading"
+            android:layout_marginStart="16dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="Save"
+        android:id="@+id/btn_save"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/cv_bill"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_brown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>

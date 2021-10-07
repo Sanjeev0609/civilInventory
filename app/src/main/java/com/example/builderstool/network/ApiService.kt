@@ -2,15 +2,10 @@ package com.example.builderstool.network
 
 import com.example.builderstool.model.*
 import com.example.builderstool.network.request.*
-import com.example.builderstool.network.response.CommonResponse
-import com.example.builderstool.network.response.OrderResponse
-import com.example.builderstool.network.response.PurchaseResponse
-import com.example.builderstool.network.response.UserResponse
+import com.example.builderstool.network.response.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.Callback
+import retrofit2.http.*
 
 interface ApiService {
     @POST("company/login")
@@ -46,4 +41,12 @@ interface ApiService {
     fun createOrder(@Body orderRequest: Order):Call<OrderResponse>
     @GET("order")
     fun listOrders(@Query("customer_id")customerId:Int):Call<ArrayList<Order>>
+    @GET("order/{id}/products")
+    fun getOrderProducts(@Path("id")id:Int):Call<ArrayList<PurchaseProducts>>
+
+    @PUT("order/{id}/edit")
+    fun editOrder(@Path("id")id:Int,@Body editOrderRequest: EditOrderRequest):Call<CommonResponse>
+
+    @GET("products/search")
+    fun searchProduct(@Query("search")query:String):Call<SearchResponse>
 }

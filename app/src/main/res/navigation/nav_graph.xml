@@ -9,7 +9,11 @@
         android:id="@+id/dashboardFragment"
         android:name="com.example.builderstool.DashboardFragment"
         android:label="Builders Tool"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_searchActivity"
+            app:destination="@id/searchActivity" />
+    </fragment>
     <fragment
         android:id="@+id/productsListFragment"
         android:name="com.example.builderstool.ui.products.ProductsListFragment"
@@ -29,6 +33,9 @@
         <action
             android:id="@+id/action_sitesListFragment_to_siteFragment"
             app:destination="@id/siteFragment" />
+        <action
+            android:id="@+id/action_sitesListFragment_to_editOrderFragment"
+            app:destination="@id/editOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/addSupplierFragment"
@@ -74,6 +81,34 @@
         <action
             android:id="@+id/action_siteFragment_to_orderFragment"
             app:destination="@id/orderFragment" />
+        <action
+            android:id="@+id/action_siteFragment_to_editOrderFragment"
+            app:destination="@id/editOrderFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/editOrderFragment"
+        android:name="com.example.builderstool.ui.orders.EditOrderFragment"
+        android:label="Edit Order" >
+        <argument
+            android:name="id"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="paid"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="balance"
+            android:defaultValue="0"
+            app:argType="integer"/>
+        <argument
+            android:name="total"
+            android:defaultValue="0"
+            app:argType="integer"/>
+    </fragment>
+    <activity
+        android:id="@+id/searchActivity"
+        android:name="com.example.builderstool.SearchActivity"
+        android:label="SearchActivity" />
 </navigation>

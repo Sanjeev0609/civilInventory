@@ -21,9 +21,9 @@ class ProductsListAdapter(var context: Context,var products:ArrayList<Product>):
         holder.itemView.tv_stock.text=product.stock.toString()
         holder.itemView.tv_price.text="₹ "+product.price
 
-        if(product.image!=null){
-            holder.itemView.iv_product.setImageURI(product.image!!.toUri())
-        }
+//        if(product.image!=null){
+//            holder.itemView.iv_product.setImageURI(product.image!!.toUri())
+//        }
 
         if (10 > product.stock!!){
             holder.itemView.iv_status.setImageResource(R.drawable.ic_warning)

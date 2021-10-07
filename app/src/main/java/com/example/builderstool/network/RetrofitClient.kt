@@ -6,10 +6,7 @@ import com.example.builderstool.common.BaseApplication
 import com.example.builderstool.common.SharedPreferenceManager
 import com.example.builderstool.model.*
 import com.example.builderstool.network.request.*
-import com.example.builderstool.network.response.CommonResponse
-import com.example.builderstool.network.response.OrderResponse
-import com.example.builderstool.network.response.PurchaseResponse
-import com.example.builderstool.network.response.UserResponse
+import com.example.builderstool.network.response.*
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -128,6 +125,15 @@ class RetrofitService {
 
     fun listOrder(customerId:Int,callback: Callback<ArrayList<Order>>){
         request(retrofit().listOrders(customerId),callback)
+    }
+    fun listOrderProducts(id:Int,callback: Callback<ArrayList<PurchaseProducts>>){
+        request(retrofit().getOrderProducts(id),callback)
+    }
+    fun editOrder(id:Int,editOrderRequest: EditOrderRequest,callback: Callback<CommonResponse>){
+        request(retrofit().editOrder(id,editOrderRequest),callback)
+    }
+    fun searchProduct(query:String,callback:Callback<SearchResponse>){
+        request(retrofit().searchProduct(query),callback)
     }
     class AuthorizationInterceptor : Interceptor {
         private val TAG: String = AuthorizationInterceptor::class.java.simpleName

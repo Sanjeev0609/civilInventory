@@ -54,7 +54,7 @@ class SiteFragment:BaseFragment(){
                 showMessage(it)
             })
             orders.observe(viewLifecycleOwner, Observer {
-                rv_products.adapter=ListOrdersAdapter(currentContext,it)
+                rv_products.adapter=ListOrdersAdapter(currentContext,it,findNavController())
                 rv_products.layoutManager=LinearLayoutManager(currentContext,LinearLayoutManager.VERTICAL,false)
             })
         }

@@ -1,9 +1,8 @@
 package com.example.builderstool
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.builderstool.ui.BottomPopupDialog
@@ -21,6 +20,7 @@ class DashboardFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         fab.setOnClickListener {
             var bottomPopup=BottomPopupDialog()
             bottomPopup.show(requireActivity().supportFragmentManager,"ModalBottomSheet")
@@ -42,5 +42,21 @@ class DashboardFragment:Fragment() {
         }
 
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_dashboard,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.search->{
+                findNavController().navigate(R.id.action_dashboardFragment_to_searchActivity)
+//                startActivity(Intent(requireActivity(),SearchActivity::class.java))
+
+            }
+        }
+        return true
     }
 }
