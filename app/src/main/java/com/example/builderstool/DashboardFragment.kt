@@ -50,6 +50,7 @@ class DashboardFragment:Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
         when(item.itemId){
             R.id.search->{
                 findNavController().navigate(R.id.action_dashboardFragment_to_searchActivity)

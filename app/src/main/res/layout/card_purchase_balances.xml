@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="10dp"
+        android:elevation="10dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cl_1"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_id_heading"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginStart="16dp"
+                    android:text="Purchase Id: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/brown"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_id"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="1 "
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toEndOf="@id/tv_id_heading"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_supplier_heading"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Supplier: "
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_id_heading"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/brown"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_supplier"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Name"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintTop_toTopOf="@id/tv_supplier_heading"
+                    app:layout_constraintStart_toEndOf="@id/tv_supplier_heading"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_total_heading"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Total: "
+                    app:layout_constraintEnd_toStartOf="@id/tv_total"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="@id/tv_total"
+
+                    app:layout_constraintBottom_toBottomOf="@id/tv_total"
+                    android:textColor="@color/brown"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_total"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="1000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_balance_heading"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Balance: "
+                    app:layout_constraintEnd_toStartOf="@id/tv_balance"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintTop_toTopOf="@id/tv_supplier_heading"
+
+                    android:textColor="@color/brown"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_balance"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="1000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintTop_toTopOf="@id/tv_balance_heading" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mark as complete"
+                    android:id="@+id/btn_complete"
+                    app:layout_constraintTop_toBottomOf="@id/tv_balance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="32dp"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="@drawable/button_brown"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

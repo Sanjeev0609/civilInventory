@@ -3,6 +3,7 @@ package com.example.builderstool
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuInflater
 import android.widget.SearchView
@@ -26,6 +27,8 @@ class SearchActivity:BaseActivity() {
         toolbar.title=""
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        var queryhandler=Handler()
         search_view.setOnQueryTextListener(object :SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -34,8 +37,11 @@ class SearchActivity:BaseActivity() {
                 return true
             }
 
+            @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
             override fun onQueryTextChange(p0: String?): Boolean {
-               return false
+                queryhandler.removeCallbacksAndMessages(null)
+                queryhandler.postDelayed({searchProduct(p0.toString()) },700)
+               return true
             }
         })
 

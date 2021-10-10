@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.contentValuesOf
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.builderstool.R.layout.card_products_in_inventory
 import com.example.builderstool.network.response.ProductsAvalailableInInventory
 import kotlinx.android.synthetic.main.card_products_in_inventory.view.*
+import java.io.File
 
 class ProductsInInventoryAdapter(var context:Context,var products:ArrayList<ProductsAvalailableInInventory>):RecyclerView.Adapter<ProductsInInventoryAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,6 +22,7 @@ class ProductsInInventoryAdapter(var context:Context,var products:ArrayList<Prod
         holder.itemView.tv_name.text=product.name
         holder.itemView.tv_price.text="₹ "+product.price
         holder.itemView.tv_quantity.text=product.stock.toString()+" available"
+        Glide.with(context).load(File(product.image!!)).error(R.drawable.ic_building_construction).into(holder.itemView.iv_product)
     }
 
     override fun getItemCount(): Int {

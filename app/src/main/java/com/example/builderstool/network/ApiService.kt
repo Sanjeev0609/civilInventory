@@ -49,4 +49,15 @@ interface ApiService {
 
     @GET("products/search")
     fun searchProduct(@Query("search")query:String):Call<SearchResponse>
+
+    @GET("purchase/balances")
+    fun getPurchaseBalances():Call<ArrayList<PurchaseBalance>>
+    @GET("order/balances")
+    fun getOrderBalances():Call<ArrayList<OrderBalance>>
+    @POST("purchase/update-balance")
+    fun updatePurchaseBalance(@Body updateBalanceRequest: UpdateBalanceRequest):Call<CommonResponse>
+
+    @POST("order/update-balance")
+    fun updateOrderBalance(@Body updateBalanceRequest: UpdateBalanceRequest):Call<CommonResponse>
+
 }

@@ -111,4 +111,12 @@
         android:id="@+id/searchActivity"
         android:name="com.example.builderstool.SearchActivity"
         android:label="SearchActivity" />
+    <fragment
+        android:id="@+id/purchaseBalance"
+        android:name="com.example.builderstool.ui.balance.PurchaseBalanceFragment"
+        android:label="Purchase Balances" />
+    <fragment
+        android:id="@+id/orderBalance"
+        android:name="com.example.builderstool.ui.balance.OrderBalanceFragment"
+        android:label="Order Balances" />
 </navigation>

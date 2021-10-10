@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.builderstool.R
 import com.example.builderstool.model.Product
 import kotlinx.android.synthetic.main.card_list_products.view.*
+import java.io.File
 
 class ProductsListAdapter(var context: Context,var products:ArrayList<Product>):RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,9 +23,10 @@ class ProductsListAdapter(var context: Context,var products:ArrayList<Product>):
         holder.itemView.tv_stock.text=product.stock.toString()
         holder.itemView.tv_price.text="₹ "+product.price
 
-//        if(product.image!=null){
+        if(product.image!=null){
+            Glide.with(context).load(File(product.image)).error(R.drawable.ic_building_construction).into(holder.itemView.iv_product)
 //            holder.itemView.iv_product.setImageURI(product.image!!.toUri())
-//        }
+        }
 
         if (10 > product.stock!!){
             holder.itemView.iv_status.setImageResource(R.drawable.ic_warning)

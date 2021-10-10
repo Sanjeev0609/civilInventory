@@ -24,6 +24,7 @@ class ProductsAvailableInSites {
 
     var street:String?=null
     var price:Int=0
+    var image:String?=null
 
 
 }

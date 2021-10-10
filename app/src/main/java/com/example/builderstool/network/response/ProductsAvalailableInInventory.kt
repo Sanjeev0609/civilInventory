@@ -22,5 +22,6 @@ class ProductsAvalailableInInventory {
     var stock:Int?=null
 
     var price:Int?=null
+    var image:String?=null
 
 }

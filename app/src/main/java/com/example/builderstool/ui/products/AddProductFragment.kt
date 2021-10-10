@@ -1,6 +1,8 @@
 package com.example.builderstool.ui.products
 
 import android.app.Activity
+import android.content.ContentResolver
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -10,17 +12,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.amazonaws.util.IOUtils
 import com.example.builderstool.R
+import com.example.builderstool.common.BaseApplication
 import com.example.builderstool.common.BaseFragment
 import kotlinx.android.synthetic.main.fragment_add_products.*
 import kotlinx.android.synthetic.main.fragment_login.*
-import java.io.File
+import java.io.*
 
 class AddProductFragment:BaseFragment() {
     override fun onCreateView(
@@ -89,12 +94,42 @@ class AddProductFragment:BaseFragment() {
                 if(resultCode==Activity.RESULT_OK && data != null && data.data != null){
                         var uri=data!!.data.toString()
                         iv_image.setImageURI(uri.toUri())
-                    addProductsViewModel.createProductRequest!!.image=uri
+//                    var fileName=File(uri)
+//                    Log.d("File name is ",fileName.absolutePath)
+                    var fileName=System.currentTimeMillis().toString()+"_"+Math.random().toString()+"."+getFileExtension(uri.toUri())
+                    var newFile=File(this.requireContext().externalCacheDir,"/"+fileName)
 
-                        Log.d("image", uri.toString())
+                    createFile(requireContext(),uri.toUri(),newFile)
+                    addProductsViewModel.createProductRequest!!.image=newFile.absolutePath
+
+                        Log.d("image", newFile.absolutePath)
                 }
             }
         }
+    }
+    private fun createFile(context: Context, srcUri: Uri, dstFile: File) {
+        try {
+            val inputStream: InputStream = context.getContentResolver().openInputStream(srcUri)
+                ?: return
+            val outputStream: OutputStream = FileOutputStream(dstFile)
+            IOUtils.copy(inputStream, outputStream)
+            inputStream.close()
+            outputStream.close()
+        } catch (e: IOException) {
+            Log.e("AdsCreateEdit","Error in create file is "+e.printStackTrace())
+        }
+    }
+    private fun getFileExtension(uri: Uri): String? {
+        try {
+            val contentResolver: ContentResolver = BaseApplication.getInstance().getContentResolver()
+            val mime = MimeTypeMap.getSingleton()
+            Log.d("GetMimeType", " uri is ${uri} c is ${contentResolver.getType(uri)} type is ${mime.getExtensionFromMimeType(contentResolver.getType(uri))}")
+            return mime.getExtensionFromMimeType(contentResolver.getType(uri))
+
+        }catch (e: Exception){
+            Log.e("AdsCreate","The error caught in getFileExtension is ${e.printStackTrace()}")
+        }
+        return null
     }
 
     fun observeViewModel(){

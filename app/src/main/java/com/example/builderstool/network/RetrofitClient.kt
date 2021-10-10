@@ -16,6 +16,7 @@ import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
+import java.lang.reflect.Array
 import java.util.concurrent.TimeUnit
 
 
@@ -134,6 +135,18 @@ class RetrofitService {
     }
     fun searchProduct(query:String,callback:Callback<SearchResponse>){
         request(retrofit().searchProduct(query),callback)
+    }
+    fun getPurchaseBalances(callback:Callback<ArrayList<PurchaseBalance>>){
+        request(retrofit().getPurchaseBalances(),callback)
+    }
+    fun getOrderBalances(callback:Callback<ArrayList<OrderBalance>>){
+        request(retrofit().getOrderBalances(),callback)
+    }
+    fun updateOrderBalance(updateBalanceRequest: UpdateBalanceRequest,callback: Callback<CommonResponse>){
+        request(retrofit().updateOrderBalance(updateBalanceRequest),callback)
+    }
+    fun updatePurchaseBalance(updateBalanceRequest: UpdateBalanceRequest,callback: Callback<CommonResponse>){
+        request(retrofit().updatePurchaseBalance(updateBalanceRequest),callback)
     }
     class AuthorizationInterceptor : Interceptor {
         private val TAG: String = AuthorizationInterceptor::class.java.simpleName
